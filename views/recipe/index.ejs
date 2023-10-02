@@ -1,0 +1,24 @@
+<% layout("layouts/boilerplate") %>
+
+<h1>All Recipes</h1>
+<p>Welcome to my culinary playground! Here, you'll find a carefully curated collection of recipes that reflect my passion for exploring diverse flavors and creating mouthwatering dishes. Whether you're a seasoned chef or a kitchen novice, these recipes are designed to inspire your inner food enthusiast. Join me on a delicious journey through the art of cooking!</p>
+<% for (let recipe of recipes) { %>
+<div class="card shadow mb-3">
+  <div class="row">
+    <div class="col-md-4">
+      <img class="img-fluid" src="<%= recipe.image %>" alt="" />
+    </div>
+    <div class="col-md-8">
+      <div class="card-body">
+        <h5 class="card-title"><%= recipe.title %></h5>
+        <p class="card-text"><%= recipe.description %></p>
+        <a class="btn btn-primary" href="/recipe/<%= recipe._id %>">View Recipe</a>
+      </div>
+    </div>
+  </div>
+</div>
+<% } %>
+
+<div class="pb-3">
+  <a class="btn btn-primary" href="/recipe/new">Add a new recipe</a>
+</div>

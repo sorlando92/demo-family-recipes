@@ -1,0 +1,57 @@
+<% layout("layouts/boilerplate") %>
+
+<div class="row">
+  <h1 class="text-center">New Recipe</h1>
+  <div class="col-6 offset-3">
+    <div class="card shadow">
+      <div class="p-3">
+        <form action="/recipe" method="post" novalidate class="validated-form mb-3" id="NewRecipeForm">
+          <div class="mb-3">
+            <label class="form-label fw-bold" for="title">Recipe Name</label>
+            <input class="form-control" type="text" id="title" name="recipe[title]" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold" for="description">Description</label>
+            <input class="form-control" type="text" id="description" name="recipe[description]" required />
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold" for="ingredients">Ingredients</label>
+            <ul id="ingredientList" class="list-group list-group-flush mb-3">
+              <li class="list-group-item d-flex" id="addlist">
+                <input type="text" class="form-control" placeholder="Enter item text" required name="recipe[ingredients]" />
+                <button type="button" class="btn btn-transparent remove-button" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </li>
+            </ul>
+
+            <a href="#" id="addIngredientLink">Add ingredient</a>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold" for="steps">Steps</label>
+            <ul id="stepList" class="list-group list-group-flush mb-3">
+              <li class="list-group-item d-flex" id="addlist">
+                <input type="text" class="form-control" placeholder="Enter item text" required name="recipe[steps]" />
+                <button type="button" class="btn btn-transparent remove-button" aria-label="Close">&times;</button>
+              </li>
+            </ul>
+            <a href="#" id="addStepLink">Add step</a>
+          </div>
+          <div class="mb-3">
+            <label class="form-label fw-bold" for="image">Image URL</label>
+            <input class="form-control" type="text" id="image" name="recipe[image]" required />
+          </div>
+          <button class="btn btn-success">Add Recipe</button>
+          <a class="btn btn-danger" href="/recipe">Cancel</a>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  #addlist {
+    padding-right: 0;
+  }
+</style>
